@@ -1,0 +1,9 @@
+#!/bin/bash
+
+mpd &
+thunar --daemon &
+dropboxd &
+dunst &
+
+eval $(ssh-agent) > /dev/null
+ssh-add > /dev/null 2>&1

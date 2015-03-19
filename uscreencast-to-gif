@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [[ $# -lt 1 || "$1" == "-h" ]]; then
+    echo usage: "$0 <video.avi> [ffmpeg options] [parallel_processes_count]"
+    exit 1
+fi
+
+output=$(ruby -e "puts '$1'.gsub(/^(.*)\.(\w+)$/, '\\1.gif')")
+
+temp_dir=$(mktemp -d)
+command="ffmpeg -i $1 $2 -r 10 $temp_dir/out%06d.png"
+eval $command
+
+ls -1 $temp_dir/out*.png | xargs -P${3:-4} -II -n1 convert I I.gif
+
+gifsicle --delay=8 --optimize --loop $temp_dir/*.gif > $output
+
+rm -r $temp_dir

@@ -1,0 +1,22 @@
+sudo sysctl fs.inotify.max_user_watches=65536
+
+export PATH=$PATH:/home/leo/bin:/home/leo/.gem/ruby/2.1.0/bin
+export LD_LIBRARY_PATH=/usr/local/lib
+
+PS1='[\u@\h \W]\$ '
+
+TERM='rxvt-unicode'
+COLORTERM='rxvt-unicode-256color'
+
+source /usr/share/git/completion/git-completion.bash
+source /etc/profile.d/infinality-settings.sh 
+
+screencloud &
+thunar --daemon &
+
+synclient PalmDetect=1
+synclient TapButton1=0
+synclient TapButton2=0
+synclient TapButton3=0
+
+dunst &
