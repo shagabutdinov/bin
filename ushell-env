@@ -21,10 +21,14 @@ alias sct="sudo systemctl stop"
 alias subl="subl3 -n -w"
 alias yaourt="yaourt --noconfirm"
 alias shaitan="sudo systemctl"
-alias uo=xdg-open
+alias uo="nohup xdg-open"
+o() { 
+  nohup xdg-open "$@" & 
+  disown
+}
 alias ut="urxvt -cd $(pwd) &"
 alias mv=/bin/mv
-alias ml="mysql -u root"
+alias ms="mysql -u root"
 alias pwgen="pwgen 12"
 alias nc="sudo netctl"
 alias pm="sudo pacman"
@@ -34,6 +38,7 @@ alias pmro="sudo pacman -Rns \$(pacman -Qtdq)"
 alias pmq="pacman -Ql"
 alias steam="wine '/home/leo/.wine/drive_c/Program Files (x86)/Steam/Steam.exe' -no-dwrite"
 alias pql="pacman -Ql"
+alias s="subl3"
 
 export GREP_OPTIONS=''
 export NODE_PATH="~/.node:/usr/lib/node_modules"

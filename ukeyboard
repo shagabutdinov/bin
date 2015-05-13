@@ -13,6 +13,7 @@ xmodmap -e "add mod4 = Alt_R"
 xmodmap -e "keycode 107 = Insert"
 xmodmap -e "keycode 218 = Insert"
 xmodmap -e "keycode 118 = Print"
+xmodmap -e "keycode 62 = KP_Enter"
 
 xset +fp /usr/share/fonts/local
 xset fp rehash
